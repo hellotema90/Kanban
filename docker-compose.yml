@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  gateway:
+    build: gateway
+    image: kanban-gateway-image
+    container_name: kanban-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - server
+    environment:
+      #- TZ=Europe/Moscow
+      - KANBAN_SERVER_URL=http://server:9090
+  server:
+    build: server
+    image: kanban-server-image
+    container_name: kanban-server
+    ports:
+      - "9090:9090"
+    depends_on:
+      - db
+    environment:
+      #- TZ=Europe/Moscow
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/kanban
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+  db:
+    image: postgres:15-alpine
+    container_name: kanban-db
+    ports:
+      - "6541:5432"
+    environment:
+      #- TZ=Europe/Moscow
+      - POSTGRES_DB=kanban
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
