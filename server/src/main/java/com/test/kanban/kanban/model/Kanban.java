@@ -24,10 +24,10 @@ public class Kanban {
     private String name;
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "task_id")
+    @JoinColumn(name = "TASK_ID")
     private Task task;
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id")
+    @JoinColumn(name = "OWNER_ID")
     private User owner;
 }
