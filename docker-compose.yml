@@ -26,7 +26,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
   db:
-    image: postgres:15-alpine
+    image: postgres:12.0
     container_name: kanban-db
     ports:
       - "6541:5432"

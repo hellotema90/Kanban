@@ -4,13 +4,11 @@ import com.test.kanban.kanban.dto.KanbanDto;
 import com.test.kanban.kanban.mapper.KanbanMapper;
 import com.test.kanban.kanban.model.Kanban;
 import com.test.kanban.kanban.repositiry.KanbanRepository;
-import com.test.kanban.task.model.Task;
 import com.test.kanban.task.repository.TaskRepository;
 import com.test.kanban.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-//import ru.practicum.shareit.exception.*;
 import com.test.kanban.exception.*;
 import org.springframework.transaction.annotation.Transactional;
 
